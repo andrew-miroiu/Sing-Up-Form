@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SINEP: Sign-Up</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="baner">
+      <span id="typewriter" class="glow" style="margin-left: 40px"></span><span class="cursor">|</span>
+    </div>
+
+    <div class="content">
+      <div class="speech">
+        <h1>Build confidence and improve your performance with simple, effective guidance. Take control of your journey and become the best version of yourself. </h1>
+        <h1>Welcome! Please fill in the form below to create your account.</h1>
+      </div>
+      <div class="form-container">
+        <form class="form-grid" method="get" id="signup-form">
+          <div class="form-field">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first-name" required>
+          </div>
+          <div class="form-field">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last-name" required>
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          <div class="form-field">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <div class="form-field">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+          </div>
+        </form>
+      </div>
+      <div class="button-section">
+        <button class="button" type="submit" form="signup-form">Create account</button>
+        <p>Already have an account? <a href="#">Log in</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const element = document.getElementById("typewriter");
+
+    const steps = [
+      { text: "Be better", pauseAfter: 1000 },
+      { deleteChars: 6, pauseAfter: 500 },
+      { text: "bigger", pauseAfter: 1000 },
+      { deleteAll: true, pauseAfter: 500 },
+      { text: "Download SINEP", pauseAfter: 2000 },
+      { deleteAllSlow: true, pauseAfter: 1000 }
+    ];
+
+    let stepIndex = 0;
+    let charIndex = 0;
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function typewriterLoop() {
+      while (true) {
+        const step = steps[stepIndex];
+
+        if (step.text) {
+          const chars = step.text;
+          while (charIndex < chars.length) {
+            element.textContent += chars[charIndex];
+            charIndex++;
+            await sleep(100);
+          }
+
+          await sleep(step.pauseAfter);
+          charIndex = 0;
+          stepIndex++;
+        }
+
+        else if (step.deleteChars) {
+          for (let i = 0; i < step.deleteChars; i++) {
+            element.textContent = element.textContent.slice(0, -1);
+            await sleep(100);
+          }
+          await sleep(step.pauseAfter);
+          charIndex = 0;
+          stepIndex++;
+        }
+
+        else if (step.deleteAll) {
+          while (element.textContent.length > 0) {
+            element.textContent = element.textContent.slice(0, -1);
+            await sleep(50);
+          }
+          await sleep(step.pauseAfter);
+          stepIndex++;
+        }
+
+        else if (step.deleteAllSlow) {
+          while (element.textContent.length > 0) {
+            element.textContent = element.textContent.slice(0, -1);
+            await sleep(100);
+          }
+          await sleep(step.pauseAfter);
+          stepIndex = 0;
+        }
+
+        await sleep(50);
+      }
+    }
+
+    typewriterLoop();
+  </script>
+</body>
+</html>

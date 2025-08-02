@@ -1,0 +1,144 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  margin-left: 0;
+  width: 60%;
+  max-width: 1200px;
+}
+
+.content .form-grid >div {
+    margin-left: 4rem;
+}
+
+.content > div {
+    margin-bottom: 4rem;
+    padding: 0;
+}
+
+.content .speech {
+    margin-left: 4rem;
+    max-width: 80%;
+}
+
+.content .button-section {
+    margin-left: 4rem;
+}
+
+.baner {
+  font-family: monospace;
+  font-size: 5.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 40%;
+  height: 100vh;
+  background-color: #050513;
+  color: violet;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glow {
+  color: #00ffe1;
+  text-shadow:
+    0 0 500px #a694ad,
+    0 0 10px #a694ad,
+    0 0 500px #a694ad,
+    0 0 200px #a694ad;
+}
+
+.cursor {
+  font-weight: bold;
+  font-size: 5.5rem;
+  color: #ffffff;
+  animation: blink 0.8s step-end infinite;
+  margin-left: 5px;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 60%;
+  row-gap: 20px;
+  column-gap: 70px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.form-container {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 20px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  background-image: linear-gradient(90deg, #503fcd, #a694ad);
+  border-radius: 8px;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: "Inter UI", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  height: 4rem;
+  padding: 0 1.6rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+}
+
+.button:hover {
+  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+}
+
+.form-field input {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 16px;
+}
+
+.form-field input:focus {
+  border-color: #503fcd;
+  outline: none;
+}
+
+.form-field label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-field input:invalid {
+  border-color: red;
+}
+
+.form-field input:valid {
+  border-color: green;
+}
